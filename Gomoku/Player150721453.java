@@ -153,7 +153,7 @@ public class Player150721453 extends GomokuPlayer {
 	 *            Position row
 	 * @param col
 	 *            Position column
-	 * @return true if the position has adjacent stone, false otherwise
+	 * @return true if the position has any  adjacent stones, false otherwise
 	 */
 	private boolean hasAdjacentStones(Color[][] board, int row, int col) {
 		boolean result = false;
@@ -226,44 +226,44 @@ public class Player150721453 extends GomokuPlayer {
 			}
 		}
 		if (myCount == 5) {
-			value += Threat.FIVE.getWeight();
+			value += Threat150721453.FIVE.getWeight();
 		} else if (myCount == 4) {
 			if (nullCount == 0) {
-				value += Threat.STRAIGHT_FOUR.getWeight();
+				value += Threat150721453.STRAIGHT_FOUR.getWeight();
 			} else if (nullCount == 1) {
-				value += Threat.FOUR.getWeight();
+				value += Threat150721453.FOUR.getWeight();
 			}
 		} else if (myCount == 3) {
 			if (nullCount == 3) {
-				value += Threat.THE_THREE.getWeight();
+				value += Threat150721453.THE_THREE.getWeight();
 			}
 			if (nullCount == 2) {
-				value += Threat.THREE.getWeight();
+				value += Threat150721453.THREE.getWeight();
 			}
 		} else if (myCount == 2) {
 			if (nullCount >= 3) {
-				value += Threat.TWO.getWeight();
+				value += Threat150721453.TWO.getWeight();
 			}
 		}
 
 		if (oppositeCount == 5) {
-			value += -(2 * Threat.FIVE.getWeight());
+			value += -(2 * Threat150721453.FIVE.getWeight());
 		} else if (oppositeCount == 4) {
 			if (nullCount == 0) {
-				value += -(10 * Threat.STRAIGHT_FOUR.getWeight());
+				value += -(10 * Threat150721453.STRAIGHT_FOUR.getWeight());
 			} else if (nullCount == 1) {
-				value += -(10 * Threat.FOUR.getWeight());
+				value += -(10 * Threat150721453.FOUR.getWeight());
 			}
 		} else if (myCount == 3) {
 			if (nullCount == 3) {
-				value += -(3 * Threat.THE_THREE.getWeight());
+				value += -(3 * Threat150721453.THE_THREE.getWeight());
 			}
 			if (nullCount == 2) {
-				value += -(3 * Threat.THREE.getWeight());
+				value += -(3 * Threat150721453.THREE.getWeight());
 			}
 		} else if (myCount == 2) {
 			if (nullCount >= 3) {
-				value += -(3 * Threat.TWO.getWeight());
+				value += -(3 * Threat150721453.TWO.getWeight());
 			}
 		}
 		return value;
@@ -298,23 +298,23 @@ public class Player150721453 extends GomokuPlayer {
 		int randomNum = random.nextInt((max - min) + 1) + min;
 		return randomNum;
 	}
-}
 
-/**
- * Enum representing the weights values of threats found on the board
- * 
- * @author Leticia Wanderley
- */
-enum Threat {
-	TWO(1.0), THREE(10.0), FOUR(1000.0), THE_THREE(100.0), STRAIGHT_FOUR(10000.0), FIVE(1000000.0);
+	/**
+	 * Enum representing the weights values of threats found on the board
+	 * 
+	 * @author Leticia Wanderley
+	 */
+	enum Threat150721453 {
+		TWO(1.0), THREE(10.0), FOUR(1000.0), THE_THREE(100.0), STRAIGHT_FOUR(10000.0), FIVE(1000000.0);
 
-	private Double weight;
+		private Double weight;
 
-	Threat(Double weight) {
-		this.weight = weight;
-	}
+		Threat150721453(Double weight) {
+			this.weight = weight;
+		}
 
-	public Double getWeight() {
-		return this.weight;
+		public Double getWeight() {
+			return this.weight;
+		}
 	}
 }
